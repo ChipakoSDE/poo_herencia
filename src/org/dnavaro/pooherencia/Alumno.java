@@ -65,4 +65,23 @@ public class Alumno extends Persona{
     public void setNotaHistoria(double notaHistoria) {
         this.notaHistoria = notaHistoria;
     }
+
+    public String saludar(){
+        String saludar = super.saludar(); // llamo al saludar del padre, en este caso de Persona
+        return saludar + " Mi nombre es " + getNombre() + " y soy un alumno";
+    }
+
+    public double calcularPromedio(){
+        // System.out.println("Calcular Promedio " + Alumno.class.getCanonicalName());
+        return (notaMatematica+notaHistoria+notaCastellano)/3;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nInstitución: " + institucion +
+                " - Nota Matemática: " + notaMatematica +
+                " - Nota Castellano: " + notaCastellano +
+                " - Nota Historia: " + notaHistoria +
+                " - Promedio: " + this.calcularPromedio();
+    }
 }
